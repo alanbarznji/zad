@@ -1,0 +1,36 @@
+{
+  "name": "zadback",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon express.js",
+    "start": "NODE_ENV=production & nodemon express.js",
+    "int-test": "mocha --require babel-core/register --recursive test"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "cookie": "^0.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.3.1",
+    "express-validator": "^7.1.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.4",
+    "sharp": "^0.33.4",
+    "uuid": "^10.0.0",
+    "xss-clean": "^0.1.4"
+  }
+}

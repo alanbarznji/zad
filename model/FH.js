@@ -1,0 +1,147 @@
+const mongoose=require('mongoose')
+const FHSchema=mongoose.Schema({
+NameH:{
+    type:String,
+    require:true
+}
+,
+NameS:{
+    type:String,
+    require:true
+},
+Number:{
+    type:String,
+    require:true
+},
+Place:{
+    type:String,
+    require:true
+},
+House:{
+    type:String,
+    require:true
+},
+HouseValue:{
+    type:Number,
+    require:true
+}
+,
+Car:{
+    type:String,
+    require:true
+},
+CarValue:{
+    type:Number,
+    require:true
+}
+,
+Loan:{
+    type:String,
+    require:true
+},
+LoanValue:{
+    type:Number,
+    require:true
+},
+LoanValueAds:{
+    type:Number,
+    require:true,
+    default:0
+}
+,
+Wage:{
+    type:String,
+    require:true
+},
+WageValue:{
+    type:Number,
+    require:true
+},
+WageValueAds:{
+    type:Number,
+    require:true,
+    default:0
+}
+,
+Children:{
+    type:String,
+    require:true
+},
+ChildrenValue:{
+    type:Number,
+    require:true
+},
+ 
+ 
+Sicks:{
+    type:String,
+    require:true
+},
+SicksValue:{
+    type:Number,
+    require:true
+},
+SicksValueAds:{
+    type:Number,
+    require:true,
+    default:0
+}
+,
+Payment:{
+    type:String,
+    require:true
+},
+PaymentValue:{
+    type:Number,
+    require:true
+}
+,
+Trust:{
+    type:String,
+    require:true
+},
+TrustValue:{
+    type:Number,
+    require:true
+}
+,
+HDetails:{
+    type:String,
+    require:true
+},
+HDetailsValue:{
+    type:Number,
+    require:true
+},
+AllSummation:{
+    type:Number,
+},
+Accept:{
+    type:String,
+    enum:['Accept','NotAccept','Waiting']
+},
+complete:{
+    type:Boolean,
+    default:false
+},
+image:{
+    type:String
+}
+},{timestamps:true})
+const url=(docs)=>{
+    if(docs.image&& !docs.image.startsWith('http')){
+      const images=`${process.env.BASE_URL}/FH/${docs.image}`
+      docs.image=images;
+    }
+  
+  }
+  FHSchema.post('init',(doc)=>{
+    url(doc)
+  })
+  FHSchema.post("save",(doc)=>{
+    url(doc)
+  })
+  
+const FH=FHSchema
+module.exports= mongoose.model("FH",FH)
+     
